@@ -39,7 +39,6 @@ use App\Http\Controllers\Administration\SupplierController;
 use App\Http\Controllers\Frontend\AuthenticationController;
 use App\Http\Controllers\Administration\LeaveTypeController;
 use App\Http\Controllers\Administration\ReferenceController;
-use App\Http\Controllers\Administration\BenchTypeController;
 use App\Http\Controllers\Administration\DepartmentController;
 use App\Http\Controllers\Administration\InvestmentController;
 use App\Http\Controllers\Administration\DesignationController;
@@ -50,7 +49,6 @@ use App\Http\Controllers\Administration\BankTransactionController;
 use App\Http\Controllers\Administration\CustomerPaymentController;
 use App\Http\Controllers\Administration\SupplierPaymentController;
 use App\Http\Controllers\Administration\MaterialPurchaseController;
-use App\Http\Controllers\Administration\PrivacyController;
 use App\Http\Controllers\Administration\PrivacyPolicyController;
 use App\Http\Controllers\Administration\TableTypeController;
 use App\Http\Controllers\Administration\TermsAndConditionController;
@@ -58,10 +56,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CateringController;
 use App\Http\Controllers\CocktailsController;
 use App\Http\Controllers\Frontend\CustomerBookingController;
-use App\Http\Controllers\FrontendBgImageController;
 use App\Http\Controllers\LunchController;
-use App\Http\Controllers\TermAndConditionController;
-use App\Models\TermAndCondition;
 
 Route::fallback(function () {
     return view('error.404');
@@ -76,10 +71,7 @@ Route::get('clear', function () {
     return back();
 });
 
-// ################################################## 
-// ################## Website Routes  ###############
-// ##################################################
-
+// Website Routes 
 Route::get('/', [FrontEndController::class, 'home'])->name('home');
 Route::get('/about-us', [FrontEndController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/checkout', [FrontEndController::class, 'checkout'])->name('checkout');
@@ -89,43 +81,31 @@ Route::get('/cocktail-menu', [FrontEndController::class, 'cocktailMenu'])->name(
 Route::get('/photo_view', [FrontEndController::class, 'photos'])->name('photos');
 Route::get('/blogs', [FrontEndController::class, 'blogs'])->name('blogs');
 Route::get('/blog_details/{slug}', [FrontEndController::class, 'blog_details'])->name('blog_details');
-
 Route::get('/privacy-policy', [FrontEndController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [FrontEndController::class, 'terms'])->name('terms');
 Route::get('/contact', [FrontEndController::class, 'contact'])->name('contact');
-
 Route::post('/storeMessage', [FrontEndController::class, 'storeMessage']);
-
 Route::post('/saveBooking', [FrontEndController::class, 'bookingStore'])->name('saveBooking');
 Route::get('/confirmBooking', [FrontEndController::class, 'confirmBooking'])->name('confirmBooking');
 Route::post('/makeBooking', [FrontEndController::class, 'makeBooking'])->name('makeBooking');
-
 Route::post('/get-captcha', [FrontEndController::class, 'getCaptcha'])->name('get.captcha');
 
 // Call Data 
-Route::get('/get-categories', [FrontEndController::class, 'getCategories'])->name ('getCategories');
-Route::get('/get-menus', [FrontEndController::class, 'getMenus'])->name ('getMenus');
-Route::get('/get-current-customer', [FrontEndController::class, 'getCustomer'])->name ('getCustomer');
-Route::post('/confirm-order', [FrontEndController::class, 'orderConfirm'])->name ('orderConfirm');
+Route::get('/get-categories', [FrontEndController::class, 'getCategories'])->name('getCategories');
+Route::get('/get-menus', [FrontEndController::class, 'getMenus'])->name('getMenus');
+Route::get('/get-current-customer', [FrontEndController::class, 'getCustomer'])->name('getCustomer');
+Route::post('/confirm-order', [FrontEndController::class, 'orderConfirm'])->name('orderConfirm');
 Route::get('/bookingCancel/{id}', [FrontEndController::class, 'booking_cancel'])->name('booking.cancel');
 Route::get('/orderCancel/{id}', [FrontEndController::class, 'order_cancel'])->name('order.cancel');
 Route::get('/order_invoice/{id}', [FrontEndController::class, 'order_invoice'])->name('order.customer.invoice');
 
-// ################################################## 
-// ################# Customer Routes  ###############
-// ##################################################
+// Customer Routes 
 // Route::post('/checkoutCustomerCheck', [AuthenticationController::class, 'checkoutCustomerCheck']);
-
 Route::post('/auth/customer', [AuthenticationController::class, 'authCheck'])->name('authCheck');
-
 Route::get('/customer/login', [AuthenticationController::class, 'customerLogin'])->name('customerLogin');
 Route::get('/customer-logout', [AuthenticationController::class, 'customerLogout'])->name('customerLogout');
-
 Route::get('/customer/register', [AuthenticationController::class, 'register'])->name('register');
 Route::post('/registration', [AuthenticationController::class, 'registrationStore'])->name('registration.store');
-
-
-
 Route::get('/profile', [AuthenticationController::class, 'profile'])->name('profile');
 Route::put('/profile/update', [AuthenticationController::class, 'profileUpdate'])->name('profile.update');
 Route::put('/profile/address/update', [AuthenticationController::class, 'profileAddressUpdate'])->name('profile.address.update');
@@ -137,23 +117,16 @@ Route::post('/forgot-password', [AuthenticationController::class, 'ForgotPasswor
 Route::get('/reset-password/{token}', [AuthenticationController::class, 'ResetPassword'])->name('ResetPassword');
 Route::post('/reset-password-store', [AuthenticationController::class, 'ResetPass'])->name('ResetPass');
 
-// ################################################## 
-// ################# Bookings Routes  ###############
-// ##################################################
+// Bookings Routes  
 Route::match(['get', 'post'], '/get-category', [CustomerBookingController::class, 'getCategory'])->name('getCategory');
 Route::match(['get', 'post'], '/get-room-list', [CustomerBookingController::class, 'roomList'])->name('roomList');
 Route::match(['get', 'post'], '/get-booking', [CustomerBookingController::class, 'index'])->name('getBooking');
 Route::get('/confirm-booking-invoice/{id}', [CustomerBookingController::class, 'bookingInvoice'])->name('get.bookingInvoice');
 Route::get('/get-categories', [FrontEndController::class, 'getCategories'])->name('getCategories');
 Route::get('/get-menus', [FrontEndController::class, 'getMenus'])->name('getMenus');
-
 // Route::get('/register', [FrontEndController::class, 'register'])->name('register');
 
-
-// ########################
-// BACKEND ROUTE START ####
-// ########################
-  
+// BACKEND ROUTE START 
 // user login route
 Route::get('/login', [LoginController::class, 'showUserLoginForm'])->name('user.login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
@@ -180,13 +153,14 @@ Route::post('add-user-access', [UserController::class, 'addUserAccess'])->name('
 Route::get('user-activity', [UserController::class, 'userActivity'])->name('user.activity')->middleware('useractivity');
 Route::post('get-user-activity', [UserController::class, 'getUserActivity'])->name('user.activity.get');
 Route::post('delete-user-activity', [UserController::class, 'destroyUserActivity'])->name('user.activity.destroy');
+
 //username check
 Route::post('check-user', [UserController::class, 'checkUser'])->name('user.checkuser');
 Route::get('company-profile', [DashboardController::class, 'company'])->name('company.profile')->middleware('useractivity');
 Route::post('update-company', [DashboardController::class, 'updateCompany'])->name('update.company')->middleware('useractivity');
 Route::get('get-company', [DashboardController::class, 'getCompany'])->name('get.company.profile');
 
-//======================================= Administration Module =========================================
+// Administration Module 
 // district route
 Route::get('district', [DistrictController::class, 'create'])->name('district.create')->middleware('useractivity');
 Route::get('get-district', [DistrictController::class, 'index'])->name('district.index');
@@ -254,26 +228,28 @@ Route::post('add-reference', [ReferenceController::class, 'store'])->name('add.r
 Route::post('update-reference', [ReferenceController::class, 'update'])->name('update.reference');
 Route::post('delete-reference', [ReferenceController::class, 'destroy'])->name('delete.reference');
 
-
-//========================== HR & PAYROLL MODULE =====================================
+// HR & PAYROLL MODULE 
 // department route
 Route::get('department', [DepartmentController::class, 'create'])->name('department.create')->middleware('useractivity');
 Route::get('get-department', [DepartmentController::class, 'index'])->name('department.index');
 Route::post('department', [DepartmentController::class, 'store'])->name('department.store');
 Route::post('update-department', [DepartmentController::class, 'update'])->name('department.update');
 Route::post('delete-department', [DepartmentController::class, 'destroy'])->name('department.destroy');
+
 // designation route
 Route::get('designation', [DesignationController::class, 'create'])->name('designation.create')->middleware('useractivity');
 Route::get('get-designation', [DesignationController::class, 'index'])->name('designation.index');
 Route::post('designation', [DesignationController::class, 'store'])->name('designation.store');
 Route::post('update-designation', [DesignationController::class, 'update'])->name('designation.update');
 Route::post('delete-designation', [DesignationController::class, 'destroy'])->name('designation.destroy');
+
 // Leave Type route
 Route::get('leave-type', [LeaveTypeController::class, 'create'])->name('leave.type.create')->middleware('useractivity');
 Route::get('get-leave-type', [LeaveTypeController::class, 'index'])->name('leave.type.index');
 Route::post('leave-type', [LeaveTypeController::class, 'store'])->name('leave.type.store');
 Route::post('update-leave-type', [LeaveTypeController::class, 'update'])->name('leave.type.update');
 Route::post('delete-leave-type', [LeaveTypeController::class, 'destroy'])->name('leave.type.destroy');
+
 // Leave Entry route
 Route::get('leave', [LeaveController::class, 'create'])->name('leave.create')->middleware('useractivity');
 Route::match(['get', 'post'], 'get-leaves', [LeaveController::class, 'index'])->name('leave.index');
@@ -281,6 +257,7 @@ Route::post('leave', [LeaveController::class, 'store'])->name('leave.store');
 Route::post('update-leave', [LeaveController::class, 'update'])->name('leave.update');
 Route::post('delete-leave', [LeaveController::class, 'destroy'])->name('leave.destroy');
 Route::get('leave-record', [LeaveController::class, 'record'])->name('leave.record')->middleware('useractivity');
+
 // Employee route
 Route::get('employee/{id?}', [EmployeeController::class, 'create'])->name('employee.create')->middleware('useractivity');
 Route::get('employee-list', [EmployeeController::class, 'list'])->name('employee.list')->middleware('useractivity');
@@ -298,14 +275,14 @@ Route::post('get-salary-details', [EmployeeController::class, 'getSalaryDetails'
 Route::get('salary-sheet-print/{id}', [EmployeeController::class, 'salaryInvoicePrint'])->name('salary.invoice.print');
 Route::post('delete-salary-payment', [EmployeeController::class, 'destroySalaryPayment'])->name('destroy.salary.payment');
 
-//===================== Account Module All Route ========================= //
-
+// Account Module All Route 
 // Account route
 Route::get('account', [AccountController::class, 'create'])->name('account.create')->middleware('useractivity');
 Route::get('get-accounts', [AccountController::class, 'index'])->name('get.account');
 Route::post('add-account', [AccountController::class, 'store'])->name('add.account');
 Route::post('update-account', [AccountController::class, 'update'])->name('update.account');
 Route::post('delete-account', [AccountController::class, 'destroy'])->name('delete.account');
+
 // Cash transaction route
 Route::get('cash-transaction', [AccountController::class, 'cashTransaction'])->name('cash.transaction')->middleware('useractivity');
 Route::match(['get', 'post'], 'get-cash-transactions', [AccountController::class, 'getCashTransaction'])->name('get.cash.transaction');
@@ -324,6 +301,7 @@ Route::get('get-bank-accounts', [BankTransactionController::class, 'index'])->na
 Route::post('add-bank-account', [BankTransactionController::class, 'store'])->name('add.bank.account');
 Route::post('update-bank-account', [BankTransactionController::class, 'update'])->name('update.bank.account');
 Route::post('change-account-status', [BankTransactionController::class, 'changeStatus'])->name('change.account.status');
+
 // Bank transaction route
 Route::get('bank-transaction', [BankTransactionController::class, 'bankTransaction'])->name('bank.transaction')->middleware('useractivity');
 Route::match(['get', 'post'], 'get-bank-transactions', [BankTransactionController::class, 'getBankTransaction'])->name('get.bank.transaction');
@@ -399,7 +377,7 @@ Route::get('investment-ledger', [InvestmentController::class, 'investmentLedger'
 Route::post('get-investment-ledger', [InvestmentController::class, 'getInvestmentLedger'])->name('get.investment.ledger');
 Route::post('investment-transaction-summary', [InvestmentController::class, 'getInvestmentTransactionSummary'])->name('investment.transaction.summary');
 
-//============================== Report Module Route ================================================
+// Report Module Route 
 Route::get('/profitLoss', [ReportController::class, 'profitLoss'])->name('profit.loss')->middleware('useractivity');
 Route::get('/balance-sheet', [ReportController::class, 'balanceSheet'])->name('report.balance.sheet')->middleware('useractivity');
 Route::post('/get-balance-sheet', [ReportController::class, 'getbalanceSheet'])->name('report.getbalance.sheet');
@@ -409,7 +387,7 @@ Route::post('/get-profit-loss', [ReportController::class, 'getProfitLoss'])->nam
 Route::post('/get_other_income_expense', [ReportController::class, 'getOtherIncomeExpense'])->name('other.income.expense');
 Route::post('/get-cashandbank-balance', [ReportController::class, 'getCashAndBankBalance'])->name('get.cashandbank.balance');
 
-//================================= Booking Module Route ==============================================
+// Booking Module Route 
 Route::get('booking/{id?}', [BookingController::class, 'create'])->name('booking.create')->middleware('useractivity');
 Route::match(['get', 'post'], 'get-booking', [BookingController::class, 'index'])->name('get.booking');
 Route::post('save-booking', [BookingController::class, 'store'])->name('save.booking');
@@ -432,7 +410,7 @@ Route::post('get-checkin-list', [BookingController::class, 'getCheckinList'])->n
 Route::get('billing-invoice', [BookingController::class, 'billingInvoice'])->name('billing.invoice')->middleware('useractivity');
 Route::get('billing-invoice-print/{id}', [BookingController::class, 'billingInvoicePrint'])->name('billing.invoicePrint')->middleware('useractivity');
 
-//===============** Restaurant Module Route **===============
+// Restaurant Module Route 
 // Menu category route
 Route::get('menu-category', [MenuCategoryController::class, 'create'])->name('menu.category.create')->middleware('useractivity');
 Route::get('get-menu-category', [MenuCategoryController::class, 'index'])->name('menu.category.index');
@@ -471,12 +449,10 @@ Route::post('delete-order', [OrderController::class, 'destroy'])->name('order.de
 Route::post('approve-order', [OrderController::class, 'approve'])->name('order.approve');
 Route::get('order-invoice-print/{id}', [OrderController::class, 'orderInvoicePrint'])->name('order.invoice')->middleware('useractivity');
 
-
 // kitchen
 Route::get('kitchen_pending_order', [OrderController::class, 'pendingList'])->name('pending.delivery')->middleware('useractivity');
 Route::get('kitchen_delivered_order', [OrderController::class, 'deliveredOrderList'])->name('kitchen_delivered.order')->middleware('useractivity');
 Route::post('kitchen_approve_order', [OrderController::class, 'kitchenApprove']);
-
 Route::get('tableBooking', [OrderController::class, 'tableBooking'])->name('tableBooking.order')->middleware('useractivity');
 Route::post('get-table-bookings', [OrderController::class, 'tableBookingList'])->name('order.tableBookingList');
 Route::post('approve-table-booking', [OrderController::class, 'approveBooking'])->name('order.approveBooking');
@@ -523,8 +499,7 @@ Route::post('delete-requisition', [RequisitionController::class, 'destroy']);
 Route::post('requisition_status', [RequisitionController::class, 'status']);
 Route::get('requisition-invoice-print/{id}', [RequisitionController::class, 'invoicePrint'])->middleware('useractivity');
 
-//===================== Inventory Module All Route ========================= //
-
+// Inventory Module All Route 
 // Brand Route
 Route::get('brand', [BrandController::class, 'create'])->name('brand.create')->middleware('useractivity');
 Route::get('get-brand', [BrandController::class, 'index'])->name('brand.index');
@@ -581,7 +556,7 @@ Route::match(['get', 'post'], 'get-issue-return', [IssueReturnController::class,
 Route::post('get-issue-return-details', [IssueReturnController::class, 'details'])->name('issue.return.details');
 Route::post('delete-issue-return', [IssueReturnController::class, 'destroy'])->name('issue.return.delete');
 
-//===================== Service Module All Route ========================= //
+// Service Module All Route 
 // Asset Route
 Route::get('service-head', [ServiceHeadController::class, 'create'])->name('service.head.create')->middleware('useractivity');
 Route::match(['get', 'post'], 'get-service-head', [ServiceHeadController::class, 'index'])->name('service.head.index');
@@ -589,6 +564,7 @@ Route::post('service-head', [ServiceHeadController::class, 'store'])->name('serv
 Route::post('update-service-head', [ServiceHeadController::class, 'update'])->name('service.head.update');
 Route::post('delete-service-head', [ServiceHeadController::class, 'destroy'])->name('service.head.destroy');
 Route::get('serviceHeadList', [ServiceHeadController::class, 'list'])->name('service.head.list')->middleware('useractivity');
+
 // Service Route
 Route::get('service', [ServiceController::class, 'create'])->name('service.create')->middleware('useractivity');
 Route::match(['get', 'post'], 'get-service', [ServiceController::class, 'index'])->name('service.index');
@@ -598,13 +574,13 @@ Route::post('delete-service', [ServiceController::class, 'destroy'])->name('serv
 Route::get('serviceList', [ServiceController::class, 'list'])->name('service.list')->middleware('useractivity');
 Route::post('get_checkin_customer', [ServiceController::class, 'getCheckinCustomer'])->name('get.checkin.customer');
 
-//===================== Business Monitor Module All Route ========================= //
+// Business Monitor Module All Route 
 Route::get('graph', [GraphController::class, 'create'])->name('graph.create')->middleware('useractivity');
 Route::match(['post', 'get'], 'get-overall-data', [GraphController::class, 'index'])->name('overall.index');
 Route::match(['post', 'get'], 'get-graph-data', [GraphController::class, 'graph'])->name('graph.index');
 Route::match(['post', 'get'], 'get-top-data', [GraphController::class, 'topData'])->name('topdata.index');
 
-//===================== Website Module All Route ========================= //
+// Website Module All Route 
 //management route
 Route::get('management', [WebsiteController::class, 'manage'])->name('management.create')->middleware('useractivity');
 Route::match(['get', 'post'], 'get-management', [WebsiteController::class, 'getManage'])->name('management.index');
@@ -661,7 +637,6 @@ Route::post('delete-blog', [BlogController::class, 'destroy'])->name('blog.destr
 //Cocktail route
 Route::get('cocktails-description', [CocktailsController::class, 'cocktaileDesc'])->name('cocktaileDesc')->middleware('useractivity');
 Route::post('update-description-cocktails', [CocktailsController::class, 'description']);
-
 Route::get('concktailsEntry', [CocktailsController::class, 'create'])->name('cocktails.create')->middleware('useractivity');
 Route::get('get-cocktails', [CocktailsController::class, 'index'])->name('cocktails.index');
 Route::get('get-categoryCocktails', [CocktailsController::class, 'getCategory']);
