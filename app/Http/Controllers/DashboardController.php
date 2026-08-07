@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserActivity;
-use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyProfile;
+use App\Models\UserActivity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
@@ -30,6 +30,7 @@ class DashboardController extends Controller
     {
         Session::forget('module');
         Session::put('module', $module);
+
         return view('administration.dashboard');
     }
 
@@ -42,23 +43,43 @@ class DashboardController extends Controller
     {
         try {
             $company = CompanyProfile::first();
+
             $data = $request->all();
             $data['logo'] = $company->logo;
             $data['favicon'] = $company->favicon;
+
             if ($request->hasFile('logo')) {
                 if (File::exists($company->logo)) {
                     File::delete($company->logo);
                 }
-                $data['logo'] = imageUpload($request, 'logo', 'uploads/logo', '');
+
+                $data['logo'] = imageUpload(
+                    $request,
+                    'logo',
+                    'uploads/logo',
+                    ''
+                );
             }
+
             if ($request->hasFile('favicon')) {
                 if (File::exists($company->favicon)) {
                     File::delete($company->favicon);
                 }
-                $data['favicon'] = imageUpload($request, 'favicon', 'uploads/favicon', '');
+
+                $data['favicon'] = imageUpload(
+                    $request,
+                    'favicon',
+                    'uploads/favicon',
+                    ''
+                );
             }
+
             $company->update($data);
-            return response()->json(['status' => true, 'message' => 'Company profile update successfully']);
+
+            return response()->json([
+                'status'  => true,
+                'message' => 'Company profile update successfully',
+            ]);
         } catch (\Throwable $th) {
             return send_error('Something went wrong', $th->getMessage());
         }
@@ -67,23 +88,27 @@ class DashboardController extends Controller
     public function getCompany()
     {
         $company = CompanyProfile::first();
+
         return response()->json($company);
     }
 
-    // admin logout
+    // Admin Logout
     public function Logout()
     {
         try {
             UserActivity::create([
-                'user_id' => Auth::user()->id,
-                'page_name' => 'Logout',
-                'login_time' => NULL,
+                'user_id'     => Auth::user()->id,
+                'page_name'   => 'Logout',
+                'login_time'  => null,
                 'logout_time' => Carbon::now(),
-                'ip_address' => request()->ip(),
+                'ip_address'  => request()->ip(),
             ]);
+
             Auth::guard('web')->logout();
+
             Session::forget('module');
             Session::flash('success', 'Logout successfully');
+
             return redirect('/login');
         } catch (\Throwable $e) {
             return send_error('Something went wrong', $e->getMessage());

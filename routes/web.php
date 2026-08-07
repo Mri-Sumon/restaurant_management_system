@@ -125,8 +125,7 @@ Route::get('/get-categories', [FrontEndController::class, 'getCategories'])->nam
 Route::get('/get-menus', [FrontEndController::class, 'getMenus'])->name('getMenus');
 // Route::get('/register', [FrontEndController::class, 'register'])->name('register');
 
-// BACKEND ROUTE START 
-// user login route
+// Admin Login
 Route::get('/login', [LoginController::class, 'showUserLoginForm'])->name('user.login.show');
 Route::post('/login', [LoginController::class, 'login'])->name('user.login');
 Route::get('/logout', [DashboardController::class, 'Logout'])->middleware('auth')->name('user.logout');

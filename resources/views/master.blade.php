@@ -125,29 +125,9 @@
 
         <div class="footer">
             <div class="footer-inner">
-                <div class="footer-content">
-                    <div class="row">
-                        <div class="col-md-9" style="padding-right: 0;">
-                            <marquee scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();"
-                                direction="left" height="30"
-                                style="padding-top: 3px; color: red; margin-bottom: -10px; font-size: 15px;"
-                                id="linkup_api">
-                                Please Call for Support : 01981-800200, Billing Issue : 01911-978897
-                            </marquee>
-                        </div>
-                        <div class="col-md-3"
-                            style="padding: 4px 0; background-color: #3e2e6b; color: white; margin-bottom: -1px;">
-                            <span style="font-size: 12px;">
-                                Developed by
-                                <span class="blue bolder">
-                                    <a href="https://srsidea.biz/" target="_blank"
-                                        style="color: white; text-decoration: underline; font-weight: normal;">
-                                        SRS Idea Ltd.
-                                    </a>
-                                </span>
-                            </span>
-                        </div>
-                    </div>
+                <div class="footer-content"
+                    style="padding: 6px 0; text-align: center; font-size: 12px; line-height: 1.4;">
+                    &copy; {{ date('Y') }} Soft Museum. All Rights Reserved.
                 </div>
             </div>
         </div>
