@@ -61,7 +61,7 @@ Route::fallback(function () {
     return view('error.404');
 })->middleware('auth');
 
-Route::get('clear', function () {
+Route::get('clear-cache', function () {
     Artisan::call('cache:clear');
     Artisan::call('config:clear');
     Artisan::call('view:clear');

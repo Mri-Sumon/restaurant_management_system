@@ -182,11 +182,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="custom-card">
-                        <div class="card-header">
-                            <h3 class="header-title">
-                                &#128247; Media Branding
-                            </h3>
+
+                        <div class="widget-header">
+                            <h4 class="widget-title">
+                                <i class="ace-icon fa fa-camera"></i>
+                                Media Branding
+                            </h4>
                         </div>
+
                         <div class="card-body">
                             <div class="upload-grid">
                                 <!-- Logo Upload -->

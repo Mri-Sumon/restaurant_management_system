@@ -85,27 +85,33 @@
 
         <div class="main-content">
             <div class="main-content-inner">
-                <div class="customScroll">
-                    <div class="main-content-navbar menuItem"></div>
-                </div>
-                <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-                    <ul class="breadcrumb">
+
+                <div class="breadcrumbs ace-save-state" id="breadcrumbs"
+                    style="display:flex;justify-content:space-between;align-items:center;">
+
+                    <ul class="breadcrumb" style="margin:0;">
                         <li>
-                            <a style="color: #fff;" href="/clear-cache">
+                            <a style="color:#fff;" href="{{ route('dashboard') }}">
                                 <i class="ace-icon fa fa-home home-icon"></i>
+                                Home
                             </a>
-                            <a style="color: #fff;" href="{{ route('dashboard') }}">Home</a>
                         </li>
                         <li>
-                            <a style="color: #fff;" href="#">@yield('breadcrumb_title')</a>
+                            <a style="color:#fff;" href="#">
+                                @yield('breadcrumb_title')
+                            </a>
                         </li>
                     </ul>
 
-                    <div class="nav-search" id="nav-search">
-                        <span style="font-weight: bold; color: #fff; font-size: 16px;">
-                            {{ $company->title }}
-                        </span>
-                    </div>
+                    <a href="/clear-cache" class="btn btn-xs btn-primary">
+                        <i class="fa fa-refresh"></i>
+                        Clear Cache
+                    </a>
+
+                </div>
+
+                <div class="customScroll">
+                    <div class="main-content-navbar menuItem"></div>
                 </div>
 
                 <div class="page-content">
