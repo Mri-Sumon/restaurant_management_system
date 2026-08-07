@@ -131,28 +131,37 @@
                             <div class="brand-wrapper d-flex justify-content-center mb-2">
                                 <img src="{{ asset($company->logo) }}" alt="logo" class="logo" />
                             </div>
+
                             <form onsubmit="AdminLogin(event)">
+                                <!-- Username / Email -->
                                 <div class="form-group mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" name="username" id="username"
-                                        class="form-control shadow-none" autofocus placeholder="Enter your username"
-                                        autocomplete="off" />
-                                    <p class="error-username m-0"></p>
+                                    <label for="login" class="form-label">Username or Email</label>
+                                    <input type="text" name="login" id="login_field"
+                                        class="form-control shadow-none" autofocus
+                                        placeholder="Enter your username or email" autocomplete="off" />
+                                    <p class="error-login m-0"></p>
                                 </div>
+
+                                <!-- Password -->
                                 <div class="form-group mb-4">
                                     <label for="password" class="form-label">Password</label>
-                                    <div style="position: relative;" class="password">
+                                    <div class="password position-relative">
                                         <input type="password" name="password" id="password"
                                             class="form-control shadow-none" placeholder="Enter your password"
                                             autocomplete="off" />
+
                                         <i class="fa fa-eye"
-                                            style="position: absolute;top: 13px;right: 12px;cursor:pointer;"
+                                            style="position:absolute;top:13px;right:12px;cursor:pointer;"
                                             onclick="passwordShow(event)"></i>
                                     </div>
+
                                     <p class="error-password m-0"></p>
                                 </div>
-                                <button type="submit" name="login" id="login"
-                                    class="btn btn-block login-btn shadow-none w-100">Login</button>
+
+                                <button type="submit" id="loginBtn" class="btn btn-block login-btn shadow-none w-100">
+                                    Login
+                                </button>
+
                             </form>
                         </div>
                     </div>
@@ -164,20 +173,21 @@
     <script src="{{ asset('backend') }}/js/jquery.js"></script>
     <script src="{{ asset('backend') }}/js/toastr.min.js"></script>
     <script src="{{ asset('backend') }}/js/typed.js"></script>
+
     <script>
         toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "progressBar": true,
-            "positionClass": "toast-top-right",
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
+            closeButton: true,
+            debug: false,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            showDuration: "300",
+            hideDuration: "1000",
+            timeOut: "5000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
         };
 
         @if (Session::has('success'))
@@ -189,8 +199,8 @@
         @endif
 
         $(function() {
-            if ($('#typed').length) {
-                var typed = new Typed('#typed', {
+            if ($("#typed").length) {
+                new Typed("#typed", {
                     strings: ["{{ $company->title }}"],
                     typeSpeed: 100,
                     backSpeed: 100,
@@ -207,45 +217,60 @@
 
         function AdminLogin(event) {
             event.preventDefault();
-            $("#login").prop("disabled", true);
-            var formdata = new FormData(event.target);
+
+            $("#loginBtn").prop("disabled", true);
+
+            let formData = new FormData(event.target);
+
             $.ajax({
                 url: "/login",
-                method: "POST",
-                data: formdata,
+                type: "POST",
+                data: formData,
                 contentType: false,
                 processData: false,
-                beforeSend: () => {
-                    $(".error-username").text('').removeClass("text-danger");
-                    $(".error-password").text('').removeClass("text-danger");
+
+                beforeSend: function() {
+                    $(".error-login").text("").removeClass("text-danger");
+                    $(".error-password").text("").removeClass("text-danger");
                 },
-                success: res => {
-                    location.href = "/module/dashboard";
+
+                success: function(res) {
+                    toastr.success(res.message);
+                    window.location.href = "/module/dashboard";
                 },
-                error: err => {
-                    $("#login").prop("disabled", false);
-                    toastr.error(err.responseJSON.message);
-                    if (typeof err.responseJSON.errors == 'object') {
-                        $.each(err.responseJSON.errors, (index, value) => {
-                            $(".error-" + index).text(value).addClass("text-danger");
-                        });
-                        return;
+
+                error: function(err) {
+
+                    $("#loginBtn").prop("disabled", false);
+
+                    if (err.responseJSON) {
+                        toastr.error(err.responseJSON.message);
+
+                        if (typeof err.responseJSON.errors === "object") {
+                            $.each(err.responseJSON.errors, function(index, value) {
+                                $(".error-" + index)
+                                    .text(value)
+                                    .addClass("text-danger");
+                            });
+                        }
+                    } else {
+                        toastr.error("Something went wrong.");
                     }
-                    console.log(err.responseJSON.errors);
                 }
             });
         }
 
-        function passwordShow(event) {
-            let passwordInput = $(".password").find('input');
-            let icon = $(".password").find('i');
+        function passwordShow() {
 
-            if (passwordInput.attr('type') === 'password') {
-                icon.removeClass('fa-eye').addClass('fa-eye-slash');
-                passwordInput.attr('type', 'text');
+            let passwordInput = $(".password input");
+            let icon = $(".password i");
+
+            if (passwordInput.attr("type") === "password") {
+                passwordInput.attr("type", "text");
+                icon.removeClass("fa-eye").addClass("fa-eye-slash");
             } else {
-                icon.removeClass('fa-eye-slash').addClass('fa-eye');
-                passwordInput.attr('type', 'password');
+                passwordInput.attr("type", "password");
+                icon.removeClass("fa-eye-slash").addClass("fa-eye");
             }
         }
     </script>
