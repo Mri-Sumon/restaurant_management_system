@@ -79,6 +79,7 @@ class UserController extends Controller
             return send_error("Something went wrong", $th->getMessage());
         }
     }
+
     public function update(UserRequest $request)
     {
         if (!$request->validated()) return send_error("Validation Error", $request->validated(), 422);
