@@ -101,241 +101,246 @@
 
 <div class="row">
     <div class="col-md-12 col-xs-12">
+
         <div class="col-md-10 col-md-offset-1 col-xs-12">
 
             <!-- Module Header -->
-            <div style="margin-bottom: 20px; padding: 0 5px 12px; border-bottom: 1px solid #e5e7eb;">
+            <div
+                style="
+                margin-bottom: 20px;
+                padding: 0 5px 12px;
+                border-bottom: 1px solid #e5e7eb;
+            ">
                 <div style="display: inline-block;">
-                    <h3 style="margin: 0; font-size: 22px; font-weight: 600; color: #2c3e50;">
-                        <i class="ace-icon fa fa-globe" style="margin-right: 8px; color: #4b3f72;"></i>
-                        Website Module
+                    <h3
+                        style="
+                        margin: 0;
+                        font-size: 22px;
+                        font-weight: 600;
+                        color: #2c3e50;
+                    ">
+                        <i class="ace-icon bi bi-people" style="margin-right: 8px; color: #4b3f72;"></i>
+                        HR & Payroll Module
                     </h3>
-                    <div style="margin-top: 5px; font-size: 12px; color: #8a8f98;">
-                        Manage your website content, pages, and dynamic elements
+
+                    <div
+                        style="
+                        margin-top: 5px;
+                        font-size: 12px;
+                        color: #8a8f98;
+                    ">
+                        Manage employee records, salaries, leave applications, and designations
                     </div>
                 </div>
             </div>
 
-            <!-- About Page -->
-            @if (checkAccess('about'))
+            <!-- Salary Payment -->
+            @if (checkAccess('salaryPayment'))
                 <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/about" style="text-decoration: none; color: inherit;">
+                    <a href="{{ route('employee.salary') }}" style="text-decoration: none; color: inherit;">
                         <div class="admin-module-card">
                             <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-file-person"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">About Page</div>
-                                <div class="admin-module-subtitle">Manage about section</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Lunch Items -->
-            @if (checkAccess('lunch'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/lunch" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-cutlery"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Lunch Items</div>
-                                <div class="admin-module-subtitle">Manage lunch menu</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Catering Details -->
-            @if (checkAccess('lunch'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/catering" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-food-turkey"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Catering Details</div>
-                                <div class="admin-module-subtitle">Manage catering page</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Slider Entry -->
-            @if (checkAccess('slider'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/slider" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-image"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Slider Entry</div>
-                                <div class="admin-module-subtitle">Manage sliders</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Blog Entry -->
-            @if (checkAccess('blog'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('blog.create') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="fa fa-pencil-square-o"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Blog Entry</div>
-                                <div class="admin-module-subtitle">Manage blogs/articles</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Cocktails Entry -->
-            @if (checkAccess('cocktail'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('cocktails.create') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-glass"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Cocktails Entry</div>
-                                <div class="admin-module-subtitle">Add new cocktails</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Cocktails Desc -->
-            @if (checkAccess('cocktail'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('cocktaileDesc') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-glass"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Cocktails Desc</div>
-                                <div class="admin-module-subtitle">Cocktail details</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Gallery Entry -->
-            @if (checkAccess('gallery'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/gallery" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-images"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Gallery Entry</div>
-                                <div class="admin-module-subtitle">Manage gallery</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Privacy Policy -->
-            @if (checkAccess('privacy_policy'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/privacy_policy" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-file-document-alert-outline"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Privacy Policy</div>
-                                <div class="admin-module-subtitle">Manage policy content</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Terms & Conditions -->
-            @if (checkAccess('terms_and_conditions'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/terms_and_conditions" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-file-document-check"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Terms & Conditions</div>
-                                <div class="admin-module-subtitle">Manage terms & conditions</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Messages -->
-            @if (checkAccess('website_messages'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/messages" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-message-processing-outline"></i>
+                                <i class="menu-icon fa fa-money"></i>
                             </div>
                             <div class="admin-module-content">
                                 <div class="admin-module-title">
-                                    Messages
-                                    @php
-                                        $cnt = App\Models\WebsiteMessage::where('is_read', 'd')->count();
-                                    @endphp
-                                    @if ($cnt > 0)
-                                        <span class="badge notify"
-                                            style="background-color: #d9534f; color: #fff; font-size: 10px; margin-left: 4px;">{{ $cnt }}</span>
-                                    @endif
+                                    Salary Payment
                                 </div>
-                                <div class="admin-module-subtitle">Contact messages</div>
+                                <div class="admin-module-subtitle">
+                                    Pay salaries
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Add Employee -->
+            @if (checkAccess('employee'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="{{ route('employee.create') }}" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-user-plus"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Add Employee
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    New employee
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Employee List -->
+            @if (checkAccess('employeeList'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="{{ route('employee.list') }}" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-users"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Employee List
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    View employees
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Leave Type -->
+            @if (checkAccess('leaveType'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/leave-type" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon bi bi-sliders"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Leave Type
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Leave settings
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Leave Entry -->
+            @if (checkAccess('leaveEntry'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/leave" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon bi bi-house-add-fill"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Leave Entry
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Apply leave
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Leave Record -->
+            @if (checkAccess('leaveRecord'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/leave-record" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon bi bi-list-check"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Leave Record
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Leave logs
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Add Designation -->
+            @if (checkAccess('designation'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/designation" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-binoculars"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Add Designation
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Designations
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Add Department -->
+            @if (checkAccess('department'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/department" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon bi bi-building"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Add Department
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Departments
+                                </div>
+                            </div>
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+            <!-- Payment Report -->
+            @if (checkAccess('salaryRecord'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="{{ route('salary.record') }}" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-money"></i>
+                            </div>
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Payment Report
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Salary records
+                                </div>
                             </div>
                             <div class="admin-module-arrow">
                                 <i class="fa fa-angle-right"></i>

@@ -101,245 +101,324 @@
 
 <div class="row">
     <div class="col-md-12 col-xs-12">
+
         <div class="col-md-10 col-md-offset-1 col-xs-12">
 
             <!-- Module Header -->
-            <div style="margin-bottom: 20px; padding: 0 5px 12px; border-bottom: 1px solid #e5e7eb;">
+            <div
+                style="
+                margin-bottom: 20px;
+                padding: 0 5px 12px;
+                border-bottom: 1px solid #e5e7eb;
+            ">
                 <div style="display: inline-block;">
-                    <h3 style="margin: 0; font-size: 22px; font-weight: 600; color: #2c3e50;">
-                        <i class="ace-icon fa fa-globe" style="margin-right: 8px; color: #4b3f72;"></i>
-                        Website Module
+                    <h3
+                        style="
+                        margin: 0;
+                        font-size: 22px;
+                        font-weight: 600;
+                        color: #2c3e50;
+                    ">
+                        <i class="ace-icon fa fa-shopping-cart" style="margin-right: 8px; color: #4b3f72;"></i>
+                        Purchase Module
                     </h3>
-                    <div style="margin-top: 5px; font-size: 12px; color: #8a8f98;">
-                        Manage your website content, pages, and dynamic elements
+
+                    <div
+                        style="
+                        margin-top: 5px;
+                        font-size: 12px;
+                        color: #8a8f98;
+                    ">
+                        Manage inventory purchases, suppliers, and billing records
                     </div>
                 </div>
             </div>
 
-            <!-- About Page -->
-            @if (checkAccess('about'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/about" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-file-person"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">About Page</div>
-                                <div class="admin-module-subtitle">Manage about section</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
 
-            <!-- Lunch Items -->
-            @if (checkAccess('lunch'))
+            <!-- Purchase Entry -->
+            @if (checkAccess('purchase'))
                 <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/lunch" style="text-decoration: none; color: inherit;">
+                    <a href="/purchase" style="text-decoration: none; color: inherit;">
                         <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-cutlery"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Lunch Items</div>
-                                <div class="admin-module-subtitle">Manage lunch menu</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
 
-            <!-- Catering Details -->
-            @if (checkAccess('lunch'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/catering" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
                             <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-food-turkey"></i>
+                                <i class="menu-icon fa fa-shopping-cart"></i>
                             </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Catering Details</div>
-                                <div class="admin-module-subtitle">Manage catering page</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
 
-            <!-- Slider Entry -->
-            @if (checkAccess('slider'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/slider" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-image"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Slider Entry</div>
-                                <div class="admin-module-subtitle">Manage sliders</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Blog Entry -->
-            @if (checkAccess('blog'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('blog.create') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="fa fa-pencil-square-o"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Blog Entry</div>
-                                <div class="admin-module-subtitle">Manage blogs/articles</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Cocktails Entry -->
-            @if (checkAccess('cocktail'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('cocktails.create') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-glass"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Cocktails Entry</div>
-                                <div class="admin-module-subtitle">Add new cocktails</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Cocktails Desc -->
-            @if (checkAccess('cocktail'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('cocktaileDesc') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-glass"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Cocktails Desc</div>
-                                <div class="admin-module-subtitle">Cocktail details</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Gallery Entry -->
-            @if (checkAccess('gallery'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/gallery" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-images"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Gallery Entry</div>
-                                <div class="admin-module-subtitle">Manage gallery</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Privacy Policy -->
-            @if (checkAccess('privacy_policy'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/privacy_policy" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-file-document-alert-outline"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Privacy Policy</div>
-                                <div class="admin-module-subtitle">Manage policy content</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Terms & Conditions -->
-            @if (checkAccess('terms_and_conditions'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/terms_and_conditions" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-file-document-check"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">Terms & Conditions</div>
-                                <div class="admin-module-subtitle">Manage terms & conditions</div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Messages -->
-            @if (checkAccess('website_messages'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/messages" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon mdi mdi-message-processing-outline"></i>
-                            </div>
                             <div class="admin-module-content">
                                 <div class="admin-module-title">
-                                    Messages
-                                    @php
-                                        $cnt = App\Models\WebsiteMessage::where('is_read', 'd')->count();
-                                    @endphp
-                                    @if ($cnt > 0)
-                                        <span class="badge notify"
-                                            style="background-color: #d9534f; color: #fff; font-size: 10px; margin-left: 4px;">{{ $cnt }}</span>
-                                    @endif
+                                    Purchase Entry
                                 </div>
-                                <div class="admin-module-subtitle">Contact messages</div>
+                                <div class="admin-module-subtitle">
+                                    New purchase
+                                </div>
                             </div>
+
                             <div class="admin-module-arrow">
                                 <i class="fa fa-angle-right"></i>
                             </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Purchase Return -->
+            @if (checkAccess('purchaseReturn'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/purchase-return" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-rotate-right"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Purchase Return
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Return items
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Purchase Record -->
+            @if (checkAccess('purchaseRecord'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/purchase-record" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-file-text-o"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Purchase Record
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    View purchases
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Asset Entry -->
+            @if (checkAccess('assetEntry'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/asset" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-line-chart"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Asset Entry
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Manage assets
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Invoice Print -->
+            @if (checkAccess('purchaseInvoice'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/purchase-invoice" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-print"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Invoice Print
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Print invoices
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Due Report -->
+            @if (checkAccess('supplierDue'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/supplier-due" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-list"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Due Report
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Supplier dues
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Payment Report -->
+            @if (checkAccess('supplierPaymentReport'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/supplier-ledger" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-credit-card-alt"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Payment Report
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Supplier ledger
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Supplier List -->
+            @if (checkAccess('supplierList'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/supplierlist" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-th-list"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Supplier List
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Manage suppliers
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Return Record -->
+            @if (checkAccess('purchaseReturnList'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/purchase-return-record" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-retweet"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Return Record
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    View returns
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            @endif
+
+
+            <!-- Re-Order List -->
+            @if (checkAccess('reorderList'))
+                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                    <a href="/reorder-list" style="text-decoration: none; color: inherit;">
+                        <div class="admin-module-card">
+
+                            <div class="admin-module-icon">
+                                <i class="menu-icon fa fa-list"></i>
+                            </div>
+
+                            <div class="admin-module-content">
+                                <div class="admin-module-title">
+                                    Re-Order List
+                                </div>
+                                <div class="admin-module-subtitle">
+                                    Low stock alert
+                                </div>
+                            </div>
+
+                            <div class="admin-module-arrow">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+
                         </div>
                     </a>
                 </div>

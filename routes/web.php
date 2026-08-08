@@ -99,7 +99,6 @@ Route::get('/orderCancel/{id}', [FrontEndController::class, 'order_cancel'])->na
 Route::get('/order_invoice/{id}', [FrontEndController::class, 'order_invoice'])->name('order.customer.invoice');
 
 // Customer Routes 
-// Route::post('/checkoutCustomerCheck', [AuthenticationController::class, 'checkoutCustomerCheck']);
 Route::post('/auth/customer', [AuthenticationController::class, 'authCheck'])->name('authCheck');
 Route::get('/customer/login', [AuthenticationController::class, 'customerLogin'])->name('customerLogin');
 Route::get('/customer-logout', [AuthenticationController::class, 'customerLogout'])->name('customerLogout');
@@ -123,7 +122,6 @@ Route::match(['get', 'post'], '/get-booking', [CustomerBookingController::class,
 Route::get('/confirm-booking-invoice/{id}', [CustomerBookingController::class, 'bookingInvoice'])->name('get.bookingInvoice');
 Route::get('/get-categories', [FrontEndController::class, 'getCategories'])->name('getCategories');
 Route::get('/get-menus', [FrontEndController::class, 'getMenus'])->name('getMenus');
-// Route::get('/register', [FrontEndController::class, 'register'])->name('register');
 
 // Admin Login
 Route::get('/login', [LoginController::class, 'showUserLoginForm'])->name('user.login.show');
