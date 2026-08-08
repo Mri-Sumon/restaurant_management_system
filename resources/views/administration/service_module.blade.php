@@ -102,110 +102,107 @@
 <div class="row">
     <div class="col-md-12 col-xs-12">
 
-        <div class="col-md-10 col-md-offset-1 col-xs-12">
-
-            <!-- Module Header -->
-            <div
-                style="
+        <!-- Module Header -->
+        <div
+            style="
                 margin-bottom: 20px;
                 padding: 0 5px 12px;
                 border-bottom: 1px solid #e5e7eb;
             ">
-                <div style="display: inline-block;">
-                    <h3
-                        style="
+            <div style="display: inline-block;">
+                <h3
+                    style="
                         margin: 0;
                         font-size: 22px;
                         font-weight: 600;
                         color: #2c3e50;
                     ">
-                        <i class="ace-icon fa fa-server" style="margin-right: 8px; color: #4b3f72;"></i>
-                        Service Module
-                    </h3>
+                    <i class="ace-icon fa fa-server" style="margin-right: 8px; color: #4b3f72;"></i>
+                    Service Module
+                </h3>
 
-                    <div
-                        style="
+                <div
+                    style="
                         margin-top: 5px;
                         font-size: 12px;
                         color: #8a8f98;
                     ">
-                        Manage service heads, service entries, and service records list
-                    </div>
+                    Manage service heads, service entries, and service records list
                 </div>
             </div>
-
-            <!-- Service Head -->
-            @if (checkAccess('serviceHead'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/service-head" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-server"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Service Head
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Service categories
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Service Entry -->
-            @if (checkAccess('service'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/service" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-building-add"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Service Entry
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Add new service
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Service List -->
-            @if (checkAccess('serviceList'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/serviceList" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-card-checklist"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Service List
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    View service records
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
         </div>
+
+        <!-- Service Head -->
+        @if (checkAccess('serviceHead'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/service-head" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-server"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Service Head
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Service categories
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Service Entry -->
+        @if (checkAccess('service'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/service" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-building-add"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Service Entry
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Add new service
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Service List -->
+        @if (checkAccess('serviceList'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/serviceList" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-card-checklist"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Service List
+                            </div>
+                            <div class="admin-module-subtitle">
+                                View service records
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
     </div>
 </div>

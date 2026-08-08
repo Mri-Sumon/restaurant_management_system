@@ -102,254 +102,251 @@
 <div class="row">
     <div class="col-md-12 col-xs-12">
 
-        <div class="col-md-10 col-md-offset-1 col-xs-12">
-
-            <!-- Module Header -->
-            <div
-                style="
+        <!-- Module Header -->
+        <div
+            style="
                 margin-bottom: 20px;
                 padding: 0 5px 12px;
                 border-bottom: 1px solid #e5e7eb;
             ">
-                <div style="display: inline-block;">
-                    <h3
-                        style="
+            <div style="display: inline-block;">
+                <h3
+                    style="
                         margin: 0;
                         font-size: 22px;
                         font-weight: 600;
                         color: #2c3e50;
                     ">
-                        <i class="ace-icon bi bi-people" style="margin-right: 8px; color: #4b3f72;"></i>
-                        HR & Payroll Module
-                    </h3>
+                    <i class="ace-icon bi bi-people" style="margin-right: 8px; color: #4b3f72;"></i>
+                    HR & Payroll Module
+                </h3>
 
-                    <div
-                        style="
+                <div
+                    style="
                         margin-top: 5px;
                         font-size: 12px;
                         color: #8a8f98;
                     ">
-                        Manage employee records, salaries, leave applications, and designations
-                    </div>
+                    Manage employee records, salaries, leave applications, and designations
                 </div>
             </div>
-
-            <!-- Salary Payment -->
-            @if (checkAccess('salaryPayment'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('employee.salary') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-money"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Salary Payment
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Pay salaries
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Add Employee -->
-            @if (checkAccess('employee'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('employee.create') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-user-plus"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Add Employee
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    New employee
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Employee List -->
-            @if (checkAccess('employeeList'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('employee.list') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-users"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Employee List
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    View employees
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Leave Type -->
-            @if (checkAccess('leaveType'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/leave-type" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-sliders"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Leave Type
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Leave settings
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Leave Entry -->
-            @if (checkAccess('leaveEntry'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/leave" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-house-add-fill"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Leave Entry
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Apply leave
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Leave Record -->
-            @if (checkAccess('leaveRecord'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/leave-record" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-list-check"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Leave Record
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Leave logs
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Add Designation -->
-            @if (checkAccess('designation'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/designation" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-binoculars"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Add Designation
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Designations
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Add Department -->
-            @if (checkAccess('department'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/department" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-building"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Add Department
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Departments
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-            <!-- Payment Report -->
-            @if (checkAccess('salaryRecord'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="{{ route('salary.record') }}" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-money"></i>
-                            </div>
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Payment Report
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Salary records
-                                </div>
-                            </div>
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endif
-
         </div>
+
+        <!-- Salary Payment -->
+        @if (checkAccess('salaryPayment'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="{{ route('employee.salary') }}" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-money"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Salary Payment
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Pay salaries
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Add Employee -->
+        @if (checkAccess('employee'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="{{ route('employee.create') }}" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-user-plus"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Add Employee
+                            </div>
+                            <div class="admin-module-subtitle">
+                                New employee
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Employee List -->
+        @if (checkAccess('employeeList'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="{{ route('employee.list') }}" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-users"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Employee List
+                            </div>
+                            <div class="admin-module-subtitle">
+                                View employees
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Leave Type -->
+        @if (checkAccess('leaveType'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/leave-type" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-sliders"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Leave Type
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Leave settings
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Leave Entry -->
+        @if (checkAccess('leaveEntry'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/leave" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-house-add-fill"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Leave Entry
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Apply leave
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Leave Record -->
+        @if (checkAccess('leaveRecord'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/leave-record" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-list-check"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Leave Record
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Leave logs
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Add Designation -->
+        @if (checkAccess('designation'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/designation" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-binoculars"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Add Designation
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Designations
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Add Department -->
+        @if (checkAccess('department'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/department" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-building"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Add Department
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Departments
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
+        <!-- Payment Report -->
+        @if (checkAccess('salaryRecord'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="{{ route('salary.record') }}" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-money"></i>
+                        </div>
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Payment Report
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Salary records
+                            </div>
+                        </div>
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        @endif
+
     </div>
 </div>

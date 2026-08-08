@@ -102,212 +102,209 @@
 <div class="row">
     <div class="col-md-12 col-xs-12">
 
-        <div class="col-md-10 col-md-offset-1 col-xs-12">
-
-            <!-- Module Header -->
-            <div
-                style="
+        <!-- Module Header -->
+        <div
+            style="
                 margin-bottom: 20px;
                 padding: 0 5px 12px;
                 border-bottom: 1px solid #e5e7eb;
             ">
-                <div style="display: inline-block;">
-                    <h3
-                        style="
+            <div style="display: inline-block;">
+                <h3
+                    style="
                         margin: 0;
                         font-size: 22px;
                         font-weight: 600;
                         color: #2c3e50;
                     ">
-                        <i class="ace-icon fa fa-calendar" style="margin-right: 8px; color: #4b3f72;"></i>
-                        Booking Module
-                    </h3>
+                    <i class="ace-icon fa fa-calendar" style="margin-right: 8px; color: #4b3f72;"></i>
+                    Booking Module
+                </h3>
 
-                    <div
-                        style="
+                <div
+                    style="
                         margin-top: 5px;
                         font-size: 12px;
                         color: #8a8f98;
                     ">
-                        Manage reservations, check-ins, and billing records
-                    </div>
+                    Manage reservations, check-ins, and billing records
                 </div>
             </div>
-
-
-            <!-- Booking Entry -->
-            @if (checkAccess('booking'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/booking" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-bookmarks"></i>
-                            </div>
-
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Booking Entry
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    New booking
-                                </div>
-                            </div>
-
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-
-            <!-- Checkout -->
-            @if (checkAccess('checkinRecord'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/checkout" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-
-                            <div class="admin-module-icon">
-                                <i class="menu-icon bi bi-box-arrow-right"></i>
-                            </div>
-
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Checkout
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Process checkout
-                                </div>
-                            </div>
-
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-
-            <!-- Checkin Record -->
-            @if (checkAccess('checkinRecord'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/checkin-record" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-list"></i>
-                            </div>
-
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Checkin Record
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    View check-ins
-                                </div>
-                            </div>
-
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-
-            <!-- Booking Record -->
-            @if (checkAccess('bookingRecord'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/booking-record" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-list"></i>
-                            </div>
-
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Booking Record
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    View all bookings
-                                </div>
-                            </div>
-
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-
-            <!-- Billing Record -->
-            @if (checkAccess('billingRecord'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/billing-record" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-list"></i>
-                            </div>
-
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Billing Record
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    View billings
-                                </div>
-                            </div>
-
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-            @endif
-
-
-            <!-- Billing Invoice -->
-            @if (checkAccess('billingInvoice'))
-                <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                    <a href="/billing-invoice" style="text-decoration: none; color: inherit;">
-                        <div class="admin-module-card">
-
-                            <div class="admin-module-icon">
-                                <i class="menu-icon fa fa-file-text-o"></i>
-                            </div>
-
-                            <div class="admin-module-content">
-                                <div class="admin-module-title">
-                                    Billing Invoice
-                                </div>
-                                <div class="admin-module-subtitle">
-                                    Manage invoices
-                                </div>
-                            </div>
-
-                            <div class="admin-module-arrow">
-                                <i class="fa fa-angle-right"></i>
-                            </div>
-
-                        </div>
-                    </a>
-                </div>
-            @endif
-
         </div>
+
+
+        <!-- Booking Entry -->
+        @if (checkAccess('booking'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/booking" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-bookmarks"></i>
+                        </div>
+
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Booking Entry
+                            </div>
+                            <div class="admin-module-subtitle">
+                                New booking
+                            </div>
+                        </div>
+
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        @endif
+
+
+        <!-- Checkout -->
+        @if (checkAccess('checkinRecord'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/checkout" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+
+                        <div class="admin-module-icon">
+                            <i class="menu-icon bi bi-box-arrow-right"></i>
+                        </div>
+
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Checkout
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Process checkout
+                            </div>
+                        </div>
+
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        @endif
+
+
+        <!-- Checkin Record -->
+        @if (checkAccess('checkinRecord'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/checkin-record" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-list"></i>
+                        </div>
+
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Checkin Record
+                            </div>
+                            <div class="admin-module-subtitle">
+                                View check-ins
+                            </div>
+                        </div>
+
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        @endif
+
+
+        <!-- Booking Record -->
+        @if (checkAccess('bookingRecord'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/booking-record" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-list"></i>
+                        </div>
+
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Booking Record
+                            </div>
+                            <div class="admin-module-subtitle">
+                                View all bookings
+                            </div>
+                        </div>
+
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        @endif
+
+
+        <!-- Billing Record -->
+        @if (checkAccess('billingRecord'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/billing-record" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-list"></i>
+                        </div>
+
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Billing Record
+                            </div>
+                            <div class="admin-module-subtitle">
+                                View billings
+                            </div>
+                        </div>
+
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        @endif
+
+
+        <!-- Billing Invoice -->
+        @if (checkAccess('billingInvoice'))
+            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
+                <a href="/billing-invoice" style="text-decoration: none; color: inherit;">
+                    <div class="admin-module-card">
+
+                        <div class="admin-module-icon">
+                            <i class="menu-icon fa fa-file-text-o"></i>
+                        </div>
+
+                        <div class="admin-module-content">
+                            <div class="admin-module-title">
+                                Billing Invoice
+                            </div>
+                            <div class="admin-module-subtitle">
+                                Manage invoices
+                            </div>
+                        </div>
+
+                        <div class="admin-module-arrow">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        @endif
+
     </div>
 </div>
