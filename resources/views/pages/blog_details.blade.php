@@ -1,5 +1,5 @@
 @extends('web_master')
-@section('title', 'Uk Restaurant')
+@section('title', 'Restaurant Management System')
 @section('main_content')
     <section class="single-blog">
         <img class="blog-img-single rounded-0" src="{{ asset($blog->image) }}" alt="">
@@ -11,13 +11,13 @@
                             <div class="p-md-5 p-3 details">
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <h3 class="mb-0">{{$blog->title}}</h3>
-                                        <a class="poi-link">{{$blog->category->name}}</a>
+                                        <h3 class="mb-0">{{ $blog->title }}</h3>
+                                        <a class="poi-link">{{ $blog->category->name }}</a>
                                     </div>
-                                    <p class="mb-0">Wed, {{$blog->date}}</p>
+                                    <p class="mb-0">Wed, {{ $blog->date }}</p>
                                 </div>
                                 <hr>
-                                {!!$blog->description!!}
+                                {!! $blog->description !!}
                             </div>
                         </article>
                     </div>

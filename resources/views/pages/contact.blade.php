@@ -1,5 +1,5 @@
 @extends('web_master')
-@section('title', 'Uk Restaurant')
+@section('title', 'Restaurant Management System')
 @section('main_content')
 
     <div class="container-fluid top-menu-section"
@@ -14,16 +14,20 @@
                         <hr>
                         <form @submit.prevent="save">
                             <div class="col-md-12 mt-2">
-                                <input v-model="contact.name" type="text" class="form-control" name="name" placeholder="Your name" required>
+                                <input v-model="contact.name" type="text" class="form-control" name="name"
+                                    placeholder="Your name" required>
                             </div>
                             <div class="col-md-12 mt-2">
-                                <input v-model="contact.email" type="email" class="form-control" name="email" placeholder="Email" required>
+                                <input v-model="contact.email" type="email" class="form-control" name="email"
+                                    placeholder="Email" required>
                             </div>
                             <div class="col-md-12 mt-2">
-                                <input v-model="contact.subject" type="text" class="form-control" name="subject" placeholder="Subject" required>
+                                <input v-model="contact.subject" type="text" class="form-control" name="subject"
+                                    placeholder="Subject" required>
                             </div>
                             <div class="col-md-12 mt-2">
-                                <textarea v-model="contact.message" class="form-control mt-2" name="message" placeholder="Your message" rows="3" required></textarea>
+                                <textarea v-model="contact.message" class="form-control mt-2" name="message" placeholder="Your message" rows="3"
+                                    required></textarea>
                             </div>
                             {{-- <div class="form-group row mt-2">
                                 <div class="col-md-12 pl-5">
@@ -48,7 +52,7 @@
 
 @push('script')
     {{-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --}}
-    <script src="{{asset('backend/js/vue/axios.min.js')}}"></script>
+    <script src="{{ asset('backend/js/vue/axios.min.js') }}"></script>
     <script>
         new Vue({
             el: '#contact',
@@ -67,22 +71,22 @@
             methods: {
                 save(event) {
                     event.preventDefault();
-                    
+
                     // if (!this.recaptchaToken) {
                     //     toastr.error("Please complete the reCAPTCHA.");
                     //     return;
                     // }
-    
+
                     let formdata = new FormData();
                     formdata.append('name', this.contact.name);
                     formdata.append('email', this.contact.email);
                     formdata.append('subject', this.contact.subject);
                     formdata.append('message', this.contact.message);
                     // formdata.append('g-recaptcha-response', this.recaptchaToken);
-    
+
                     const url = '/storeMessage';
                     this.onProgress = true;
-    
+
                     axios.post(url, formdata)
                         .then(res => {
                             toastr.success(res.data.message || "Message sent successfully!");
@@ -91,7 +95,7 @@
                         })
                         .catch(err => {
                             this.onProgress = false;
-    
+
                             if (err.response && err.response.status === 422 && err.response.data.errors) {
                                 const errors = err.response.data.errors;
                                 Object.keys(errors).forEach(key => {
@@ -118,5 +122,4 @@
             },
         });
     </script>
-    
 @endpush

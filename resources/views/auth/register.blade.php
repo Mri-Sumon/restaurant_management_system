@@ -1,5 +1,5 @@
 @extends('web_master')
-@section('title', 'Uk Restaurant')
+@section('title', 'Restaurant Management System')
 @section('main_content')
     <div class="container-fluid top-menu-section"
         style="background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(41, 46, 49, 1)), url('{{ asset('frontend/img/common-bg.jpg') }}');">
@@ -24,9 +24,9 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <input type="text" placeholder="First name"
-                                                class="form-control  @error('first_name') is-invalid @enderror " name="first_name"
-                                                value="{{ old('first_name') }}" placeholder="First Name" value="" required
-                                                autocomplete="off" autofocus>
+                                                class="form-control  @error('first_name') is-invalid @enderror "
+                                                name="first_name" value="{{ old('first_name') }}" placeholder="First Name"
+                                                value="" required autocomplete="off" autofocus>
                                             @error('first_name')
                                                 <span class="invalid-feedback" style="color:red;float:left">
                                                     <strong>{{ $message }}</strong>
@@ -35,9 +35,9 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <input type="text" placeholder="Last name"
-                                                class="form-control  @error('last_name') is-invalid @enderror " name="last_name"
-                                                value="{{ old('last_name') }}" placeholder="Last Name" value="" required
-                                                autocomplete="off" autofocus>
+                                                class="form-control  @error('last_name') is-invalid @enderror "
+                                                name="last_name" value="{{ old('last_name') }}" placeholder="Last Name"
+                                                value="" required autocomplete="off" autofocus>
                                             @error('last_name')
                                                 <span class="invalid-feedback" style="color:red;float:left">
                                                     <strong>{{ $message }}</strong>
@@ -48,11 +48,11 @@
 
                                 </div>
                                 <!-- <div class="col-md-6">
-                                    <input id="Lname" type="text" placeholder="Last name"
-                                        class="form-control " name="Lname"
-                                        value="" required autocomplete="Fname" autofocus>
+                                        <input id="Lname" type="text" placeholder="Last name"
+                                            class="form-control " name="Lname"
+                                            value="" required autocomplete="Fname" autofocus>
 
-                                </div> -->
+                                    </div> -->
                             </div>
 
                             <div class="form-group row">
@@ -89,8 +89,8 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <input id="signup-password-field" type="password"
-                                        class="form-control @error('password') is-valid @enderror"
-                                        name="password" placeholder="Password">
+                                        class="form-control @error('password') is-valid @enderror" name="password"
+                                        placeholder="Password">
                                     @error('password')
                                         <span class="invalid-feedback" style="color:red;float:left">
                                             <strong>{{ $message }}</strong>
@@ -114,18 +114,18 @@
                                 </label>
                             </div>
                             <!-- <div class="form-group row">
-                                <div class="col-md-12">
-                                    <input id="password-confirm" placeholder="Confirm password" type="password"
-                                        class="form-control" name="password_confirmation" required
-                                        autocomplete="new-password">
+                                    <div class="col-md-12">
+                                        <input id="password-confirm" placeholder="Confirm password" type="password"
+                                            class="form-control" name="password_confirmation" required
+                                            autocomplete="new-password">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <div class="g-recaptcha" data-sitekey="6LccuDsqAAAAABmG1b7Y4VoIeKs7TDVXMFiVdG8p" data-size="normal" data-theme="light" id="recaptcha-element"></div>
-                                </div>
-                            </div> -->
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <div class="g-recaptcha" data-sitekey="6LccuDsqAAAAABmG1b7Y4VoIeKs7TDVXMFiVdG8p" data-size="normal" data-theme="light" id="recaptcha-element"></div>
+                                    </div>
+                                </div> -->
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-12">

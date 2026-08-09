@@ -1,5 +1,5 @@
 @extends('web_master')
-@section('title', 'Uk Restaurant')
+@section('title', 'Restaurant Management System')
 @section('main_content')
     <div class="container-fluid top-menu-section"
         style="background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0.2), rgba(41, 46, 49, 1)), url('{{ asset('frontend/img/common-bg.jpg') }}');">
@@ -283,26 +283,33 @@
                                             <div class="form-group row">
                                                 <div class="col-lg-6">
                                                     <label for="name">Address I</label>
-                                                    <input type="text" class="form-control" value="{{Auth::guard('customer')->user()->address}}" name="address"
-                                                    placeholder="Address Line 1">
+                                                    <input type="text" class="form-control"
+                                                        value="{{ Auth::guard('customer')->user()->address }}"
+                                                        name="address" placeholder="Address Line 1">
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label for="name">Address II</label>
-                                                    <input type="text" class="form-control" value="{{Auth::guard('customer')->user()->address_line_II}}" name="address_line_II"
-                                                    placeholder="Address Line 2">
+                                                    <input type="text" class="form-control"
+                                                        value="{{ Auth::guard('customer')->user()->address_line_II }}"
+                                                        name="address_line_II" placeholder="Address Line 2">
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label for="name">City</label>
-                                                    <input type="text" class="form-control" value="{{Auth::guard('customer')->user()->city}}" name="city" placeholder="City" >
+                                                    <input type="text" class="form-control"
+                                                        value="{{ Auth::guard('customer')->user()->city }}"
+                                                        name="city" placeholder="City">
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label for="name">State/Province/Region</label>
-                                                    <input type="text" class="form-control" value="{{Auth::guard('customer')->user()->state}}" name="state" placeholder="State/Province/Region">
+                                                    <input type="text" class="form-control"
+                                                        value="{{ Auth::guard('customer')->user()->state }}"
+                                                        name="state" placeholder="State/Province/Region">
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label for="name">ZIP/Postal Code</label>
-                                                    <input type="text" class="form-control" value="{{Auth::guard('customer')->user()->zip}}" name="zip"
-                                                            placeholder="ZIP/Postal Code">
+                                                    <input type="text" class="form-control"
+                                                        value="{{ Auth::guard('customer')->user()->zip }}" name="zip"
+                                                        placeholder="ZIP/Postal Code">
                                                 </div>
                                             </div>
                                             <hr class="my-2">
@@ -438,11 +445,11 @@
 
 
 @push('script')
-<script>
-    $(document).ready(function() {
-        $('#ftco-navbar').addClass('customfixnav');
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#ftco-navbar').addClass('customfixnav');
+        });
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -453,9 +460,9 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
 
-                // Remove 'active' class from all tabs and content
-                tabLinks.forEach(link => link.parentElement.classList.remove('active'));
-                tabContent.forEach(content => content.classList.remove('active'));
+                    // Remove 'active' class from all tabs and content
+                    tabLinks.forEach(link => link.parentElement.classList.remove('active'));
+                    tabContent.forEach(content => content.classList.remove('active'));
 
                     // Add 'active' class to the clicked tab and the corresponding content
                     link.parentElement.classList.add('active');
@@ -466,17 +473,17 @@
         });
     </script>
 
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
-            reader.onload = function(e) {
-                $('#previewImage')
-                    .attr('src', e.target.result)
-                    .width(100)
-                    .height(80);
-            };
+                reader.onload = function(e) {
+                    $('#previewImage')
+                        .attr('src', e.target.result)
+                        .width(100)
+                        .height(80);
+                };
 
                 reader.readAsDataURL(input.files[0]);
             }
@@ -486,16 +493,16 @@
 
 
 
-    function showInvoice(id) {
-        event.preventDefault();
-        window.open(`/confirm-booking-invoice/${id}`, '_blank');
-    }
-
-    function logout(event) {
-        event.preventDefault();
-        if (confirm("Are you sure ?")) {
-            location.href = "{{ route('customerLogout') }}";
+        function showInvoice(id) {
+            event.preventDefault();
+            window.open(`/confirm-booking-invoice/${id}`, '_blank');
         }
-    }
-</script>
+
+        function logout(event) {
+            event.preventDefault();
+            if (confirm("Are you sure ?")) {
+                location.href = "{{ route('customerLogout') }}";
+            }
+        }
+    </script>
 @endpush

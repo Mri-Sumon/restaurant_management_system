@@ -125,16 +125,6 @@
             </a>
         </div>
 
-        <!-- Booking & Reservations -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <a href="/module/BookingModule" class="module-card theme-indigo">
-                <div class="logo-icon">
-                    <i class="bi bi-bookmark-plus"></i>
-                </div>
-                <span class="module-title">Reservations & Booking</span>
-            </a>
-        </div>
-
         <!-- Service Desk -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <a href="/module/ServiceModule" class="module-card theme-blue">
@@ -203,18 +193,6 @@
                         <i class="fa fa-bar-chart"></i>
                     </div>
                     <span class="module-title">Business Monitor</span>
-                </a>
-            </div>
-        @endif
-
-        <!-- Website Portal -->
-        @if (checkAccess('graph'))
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="/module/WebsiteModule" class="module-card theme-teal">
-                    <div class="logo-icon">
-                        <i class="bi bi-globe"></i>
-                    </div>
-                    <span class="module-title">Web Portal Control</span>
                 </a>
             </div>
         @endif

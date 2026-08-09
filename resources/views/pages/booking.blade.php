@@ -1,14 +1,15 @@
 @extends('web_master')
-@section('title', 'Uk Restaurant')
+@section('title', 'Restaurant Management System')
 
 @section('main_content')
     <style>
         .booking_info {
             margin-top: -150px;
         }
-        .booking_info textarea.form-control{
+
+        .booking_info textarea.form-control {
             border-color: #fff;
-            border-radius: 5px; 
+            border-radius: 5px;
         }
 
         [_a584de] {
@@ -94,7 +95,8 @@
                                     </div>
                                     <div class="form-group"
                                         style="display: flex; align-items: center; justify-content: end; margin-bottom: 0;">
-                                        <button type="submit" style="background: #b68854" class="btn-sm btn">Confirm Booking</button>
+                                        <button type="submit" style="background: #b68854" class="btn-sm btn">Confirm
+                                            Booking</button>
                                     </div>
                                 </td>
                             </tr>

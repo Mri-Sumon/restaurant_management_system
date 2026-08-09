@@ -393,36 +393,6 @@
             </div>
         @endif
 
-
-        <!-- Reference Entry -->
-        @if (checkAccess('reference'))
-            <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">
-                <a href="/reference" style="text-decoration: none; color: inherit;">
-                    <div class="admin-module-card">
-
-                        <div class="admin-module-icon">
-                            <i class="menu-icon bi bi-people"></i>
-                        </div>
-
-                        <div class="admin-module-content">
-                            <div class="admin-module-title">
-                                Reference Entry
-                            </div>
-                            <div class="admin-module-subtitle">
-                                Manage references
-                            </div>
-                        </div>
-
-                        <div class="admin-module-arrow">
-                            <i class="fa fa-angle-right"></i>
-                        </div>
-
-                    </div>
-                </a>
-            </div>
-        @endif
-
-
         <!-- Create User -->
         @if (checkAccess('user'))
             <div class="col-md-2 col-sm-4 col-xs-6" style="padding: 7px;">

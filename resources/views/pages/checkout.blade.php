@@ -1,5 +1,5 @@
 @extends('web_master')
-@section('title', 'Uk Restaurant')
+@section('title', 'Restaurant Management System')
 @section('main_content')
     <style>
         .navbar.scrolled,
@@ -261,7 +261,8 @@
                                         <tr v-for="(item, index) in cart" :key="index">
                                             <td>@{{ index + 1 }}</td>
                                             <td>
-                                                <span class="cart-img me-2"><img :src="item.image" alt=""></span>
+                                                <span class="cart-img me-2"><img :src="item.image"
+                                                        alt=""></span>
                                                 @{{ item.name }}
                                             </td>
                                             <td>@{{ item.category }}</td>
@@ -285,7 +286,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 

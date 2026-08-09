@@ -17,8 +17,6 @@
         @include('administration.administration_module')
     @elseif($module == 'WebsiteModule')
         @include('administration.web_site_module')
-    @elseif($module == 'BookingModule')
-        @include('administration.booking_module')
     @elseif($module == 'PurchaseModule')
         @include('administration.purchase_module')
     @elseif($module == 'AccountsModule')
@@ -33,7 +31,5 @@
         @include('administration.kitechen_module')
     @elseif($module == 'InventoryModule')
         @include('administration.inventory_module')
-    @elseif($module == 'ServiceModule')
-        @include('administration.service_module')
     @endif
 @endsection

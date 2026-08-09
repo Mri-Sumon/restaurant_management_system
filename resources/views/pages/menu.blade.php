@@ -1,5 +1,5 @@
 @extends('web_master')
-@section('title', 'Uk Restaurant')
+@section('title', 'Restaurant Management System')
 @section('main_content')
     <style>
         html {
@@ -15,20 +15,19 @@
             margin: 40px 0
         }
 
-        #menu_site_cart_item, 
-        #menu_site_cart_item_mobile
-        {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        background-color: transparent;
-        border: 1px solid #9F784A;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
+        #menu_site_cart_item,
+        #menu_site_cart_item_mobile {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border: 1px solid #9F784A;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
-        #menu_site_cart_item li, 
+        #menu_site_cart_item li,
         #menu_site_cart_item_mobile li {
             display: flex;
             align-items: center;
@@ -139,18 +138,18 @@
                         <div class="mt-0 mt-md-4 col-xl-7 col-lg-6 col-md-12">
 
                             <!-- <div class="menu-download">
-                                            <a href="download-menu/Indriya-Menu-2024.pdf" class="btn poibtn-outline" target="_blank">
-                                                Download Indriya Menu
-                                            </a>
+                                                <a href="download-menu/Indriya-Menu-2024.pdf" class="btn poibtn-outline" target="_blank">
+                                                    Download Indriya Menu
+                                                </a>
 
-                                            <a href="download-menu/cocktails.pdf" class="btn poibtn-outline" target="_blank">
-                                                Download Cocktails Menu
-                                            </a>
+                                                <a href="download-menu/cocktails.pdf" class="btn poibtn-outline" target="_blank">
+                                                    Download Cocktails Menu
+                                                </a>
 
-                                            <p>Download our PDF menus for offline use</p>
-                                        </div>
+                                                <p>Download our PDF menus for offline use</p>
+                                            </div>
 
-                                        <h4 class="my-2 d-xl-none d-lg-none">Sorry! Shop is closed now.</h4> -->
+                                            <h4 class="my-2 d-xl-none d-lg-none">Sorry! Shop is closed now.</h4> -->
 
 
                             <template v-for="(category, index) in categories">
@@ -201,104 +200,104 @@
 
                             <!-- <h4 class="mb-2 mt-4 text-center">Offers and Charges</h4>
 
-                                        <div class="col-12 d-flex flex-column flex-md-row justify-content-start">
-                                        </div>
-                                        <div class="container">
-                                            <div class="p-2 mt-3">
-                                                <h4 class="mb-4 text-center">Allergy Information</h4>
-                                                <div class="flex-wrap row d-flex jusitfy-content-start">
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="{{ asset('frontend/storage/uploads/Dd_1723051658.png') }}" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Dairy
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="{{ asset('frontend/storage/uploads/Ee_1723051724.png') }}" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Egg
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="{{ asset('frontend/storage/uploads/Gg_1723051778.png') }}" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Gluten
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="{{ asset('frontend/storage/uploads/Ff_1723051797.png') }}" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Fish
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="{{ asset('frontend/storage/uploads/Nn_1723052088.png') }}" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Nuts
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="{{ asset('frontend/storage/uploads/GFgf_1723052111.png') }}" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Gluten Free
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="storage/uploads/MOmo_1723052141.png" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Molluscs
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="storage/uploads/MUmu_1723052208.png" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Mustard
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="storage/uploads/Cc_1723052300.png" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Crustaceans
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="storage/uploads/Vv_1723052335.png" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Vegetarian
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                        class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
-                                                        <img src="storage/uploads/VEve_1723052553.png" alt="" class="p-0 m-0"
-                                                            style="max-width: 30px; height:auto;">
-                                                        <p class="mb-0 text-center" style="font-size: 12px;">
-                                                            Vegan
-                                                        </p>
+                                            <div class="col-12 d-flex flex-column flex-md-row justify-content-start">
+                                            </div>
+                                            <div class="container">
+                                                <div class="p-2 mt-3">
+                                                    <h4 class="mb-4 text-center">Allergy Information</h4>
+                                                    <div class="flex-wrap row d-flex jusitfy-content-start">
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="{{ asset('frontend/storage/uploads/Dd_1723051658.png') }}" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Dairy
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="{{ asset('frontend/storage/uploads/Ee_1723051724.png') }}" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Egg
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="{{ asset('frontend/storage/uploads/Gg_1723051778.png') }}" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Gluten
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="{{ asset('frontend/storage/uploads/Ff_1723051797.png') }}" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Fish
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="{{ asset('frontend/storage/uploads/Nn_1723052088.png') }}" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Nuts
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="{{ asset('frontend/storage/uploads/GFgf_1723052111.png') }}" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Gluten Free
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="storage/uploads/MOmo_1723052141.png" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Molluscs
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="storage/uploads/MUmu_1723052208.png" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Mustard
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="storage/uploads/Cc_1723052300.png" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Crustaceans
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="storage/uploads/Vv_1723052335.png" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Vegetarian
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="pb-1 pr-1 d-flex flex-column align-items-center  col-xl-1 col-lg-2 col-md-2 col-3">
+                                                            <img src="storage/uploads/VEve_1723052553.png" alt="" class="p-0 m-0"
+                                                                style="max-width: 30px; height:auto;">
+                                                            <p class="mb-0 text-center" style="font-size: 12px;">
+                                                                Vegan
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                        </div> -->
+                                            </div> -->
                         </div>
                         <!--================Foods=================-->
 
@@ -350,12 +349,12 @@
                 <button class="btn mobnav-item slide-toggle cart-mobnav-btn" style="margin: 0px;">
                     <span class="mob-Count">
                         <i class="fas fa-shopping-cart"></i>
-                        @{{cart.length > 0 ? cart.length : ''}}
+                        @{{ cart.length > 0 ? cart.length : '' }}
                     </span>
                 </button>
                 <div class="mob-total d-flex align-items-center justify-content-between">
                     <h6 class="mb-0 mobnav-item total-nav-section" style="font-weight:bold;"> Total:
-                        £@{{totalPrice}}</h6>
+                        £@{{ totalPrice }}</h6>
                     <a href="{{ route('checkout') }}" class="mobnav-item">Checkout</a>
                     </a>
 
