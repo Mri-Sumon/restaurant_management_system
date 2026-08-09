@@ -43,9 +43,6 @@
 </head>
 
 <body class="skin-2">
-    <div class="preloader">
-        <img src="{{ asset('loading.gif') }}" alt="Loading...">Loading...
-    </div>
 
     @include('layouts.navbar')
 
